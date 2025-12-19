@@ -1,8 +1,8 @@
-# Medly – Personal Health Companion
+# Medly – твій кишеньковий гайд зі здоров’я
 
-Medly is a concept Flutter application that showcases a "doctor in your pocket" experience. It personalizes onboarding, ingests lab results flexibly, explains biomarkers in plain language, lets people chat with an AI guide, and turns data into an actionable plan.
+Medly — Flutter-додаток, який працює як лікар у кишені. Розуміє твій контекст, приймає аналізи як зручно, пояснює простими словами, завжди готовий поговорити і підказує, що робити далі.
 
-## Project structure
+## Структура проєкту
 ```
 lib/
  ├─ app.dart, main.dart
@@ -14,28 +14,28 @@ lib/
  │   ├─ ai_explainer    → overview + per-marker insights
  │   ├─ chat            → Medly AI chat UI
  │   └─ next_steps      → action plan grouped by timeframe
- ├─ theme/              → brand colors + typography
- └─ widgets/            → shared components (app bar, etc.)
+├─ theme/              → brand colors + typography
+└─ widgets/            → shared components (app bar, etc.)
 ```
 
-## Getting started
-1. [Install Flutter](https://docs.flutter.dev/get-started/install) (3.19+ recommended).
-2. From this folder run `flutter pub get`.
-3. (Optional) Provide an OpenAI key for live insights:
+## Як запустити
+1. [Встанови Flutter](https://docs.flutter.dev/get-started/install) (орієнтир — 3.19+).
+2. З кореня проєкту виконай `flutter pub get`.
+3. (Необов’язково) передай ключ OpenAI для живих інсайтів:
    ```
    flutter run -d <device> --dart-define=OPENAI_API_KEY=sk-your-key
    ```
-   Without the key Medly falls back to the built-in demo explanations.
+   Без ключа Medly використовує вбудовані демо-пояснення.
 
-## Feature highlights
-- **Onboarding** now starts with a quick registration (phone or email) and asks three questions so AI має контекст.
-- **Lab upload** showcases camera/PDF/manual entry cards plus editable recognized markers.
-- **AI explanation** (українською) додає емпатичний огляд та конкретні дії, а з OpenAI ключем — генерує живі інсайти за вашими маркерами.
-- **Chat** підтримує відчуття "лікаря в кишені" і звертається українською.
-- **Next steps** breaks actions into "now", "soon", and "later" to avoid overwhelm.
+## Основні фічі
+- **Auth + onboarding**: легкий флоу реєстрації/входу (телефон або email) і дружні тексти. Далі — кілька питань про вік, цілі, вагу, зріст, харчування та активність.
+- **Гнучке додавання аналізів**: плитки “Зробити фото”, “Завантажити PDF”, “Ввести вручну”. Пошук синхронізовано з ручним додаванням, маркери легко редагуються й одразу оновлюють статус.
+- **AI-пояснення українською**: тепла “Загальна картина” + конкретні рекомендації. Якщо передати `OPENAI_API_KEY`, отримуєш реальний аналіз за своїми даними.
+- **Medly Chat**: поле вводу з живим тоном (“Ну що там у тебе, розказуй 😊”) і статусом “онлайн”, щоб підсилити відчуття друга-експерта.
+- **Next Steps**: кнопка “Додати крок” + ChoiceChip-перемикач режимів (Шкала / Список / Фокус). У списку немає overflow, бейджі термінів під заголовками, а Focus-режим дає короткий Today / Upcoming / Later огляд.
 
-## Testing
-Run the included smoke test:
+## Тестування
+Запусти smoke-тест:
 ```
 flutter test
 ```
